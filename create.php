@@ -1,7 +1,7 @@
 <?php
-$dsn = 'mysql:dbname=php_db_app;host=localhost;charset=utf8mb4';
-$user = 'root';
-$password = '';
+$dsn = 'pgsql:dbname=php_db_app;host=dpg-cfico202i3murcfa3b2g-a.oregon-postgres.render.com;port=5432';
+$user = 'php_db_app';
+$password = 'CHl1KUt2qTZedU69iIsq9hJ0S21eajW6';
 
 if (isset($_POST['submit'])) {
   try {
@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     // 動的に変わる値をプレースホルダに置き換えたINSERT文をあらかじめ用意する
     $sql_insert = '
     INSERT INTO products (product_code, product_name, price, stock_quantity, vendor_code)
-    VALUE (:product_code, :product_name, :price, :stock_quantity, :vendor_code)
+    VALUES (:product_code, :product_name, :price, :stock_quantity, :vendor_code)
     ';
     $stmt_insert = $pdo->prepare($sql_insert);
 
